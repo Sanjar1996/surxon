@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # External apps
-    'parler',
+    # 'parler',
     'active_link',
     'ckeditor',
     'ckeditor_uploader',
