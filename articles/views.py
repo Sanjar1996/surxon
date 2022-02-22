@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.views.generic import DetailView
 from .models import *
-from django.utils.translation import gettext as _
 
 
 def homeview(request):
@@ -44,20 +43,15 @@ def newsview(request):
     paginator = Paginator(news_model, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    tarjima = _("helo world")
 
     context = {
         'news_model': news_model,
         'news_price': news_price,
         'page_obj': page_obj,
-        'tarjima': tarjima
     }
     return render(request, 'news.html', context)
 
 
-# class DetailView(DetailView):
-#     model = Newsmodel
-#     template_name = 'detail.html'
 
 def detailview(request, pk):
     news = Newsmodel.objects.get(id=pk)

@@ -1,15 +1,30 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from django.conf import settings
+from django.utils.translation import get_language
 
 
 class HomeCaruselModel(models.Model):
     title = models.CharField(verbose_name="title karusel", max_length=100)
+
     summary = models.CharField(max_length=250)
     body = RichTextField()
 
     def __str__(self):
         return self.title
+
+    # @property
+    # def title(self):
+    #     return getattr(self, 'title_{}'.format(get_language()))
+    # 
+    # @property
+    # def summary(self):
+    #     return getattr(self, 'summary_{}'.format(get_language()))
+    # 
+    # @property
+    # def body(self):
+    #     return getattr(self, 'body_{}'.format(get_language()))
 
 
 class FutureModels(models.Model):
@@ -64,13 +79,28 @@ class AboutMaydon(models.Model):
 
 class Newsmodel(models.Model):
     image = models.ImageField(upload_to='image/')
+
     title = models.CharField(max_length=250)
+
     summary = models.CharField(max_length=250)
+
     body = RichTextField()
     date = models.DateField(auto_now=False)
 
     def __str__(self):
         return self.title
+
+    # @property
+    # def title(self):
+    #     return getattr(self, 'title_{}'.format(get_language()))
+    # 
+    # @property
+    # def summary(self):
+    #     return getattr(self, 'summary_{}'.format(get_language()))
+    # 
+    # @property
+    # def body(self):
+    #     return getattr(self, 'body_{}'.format(get_language()))
 
 
 class NewsPrise(models.Model):
