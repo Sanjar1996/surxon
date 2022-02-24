@@ -9,7 +9,7 @@ class HomeCaruselModel(models.Model):
     title = models.CharField(verbose_name="title karusel", max_length=100)
 
     summary = models.CharField(max_length=250)
-    body = RichTextField()
+    body = models.TextField()
 
     def __str__(self):
         return self.title
@@ -50,7 +50,7 @@ class SubMenuModels(models.Model):
 class MainSiteModels(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100)
-    body = RichTextField()
+    body = models.TextField()
     youtube_silka = models.CharField(max_length=100, blank=True)
     video = models.FileField(upload_to='upload/', blank=True)
     icon = models.CharField(max_length=150, blank=True)
@@ -62,7 +62,7 @@ class MainSiteModels(models.Model):
 class About(models.Model):
     title = models.CharField(max_length=250)
     sub_title = models.CharField(max_length=250)
-    body = RichTextField()
+    body = models.TextField()
     image = models.ImageField(upload_to='image/', blank=True)
 
     def __str__(self):
@@ -79,12 +79,9 @@ class AboutMaydon(models.Model):
 
 class Newsmodel(models.Model):
     image = models.ImageField(upload_to='image/')
-
     title = models.CharField(max_length=250)
-
     summary = models.CharField(max_length=250)
-
-    body = RichTextField()
+    body = models.TextField()
     date = models.DateField(auto_now=False)
 
     def __str__(self):

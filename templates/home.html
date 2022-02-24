@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static i18n %}
+{% load static %}
 {% block content %}
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-cntent-center align-items-center">
@@ -19,11 +19,9 @@
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
       </a>
-
       <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
         <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
       </a>
-
     </div>
   </section><!-- End Hero -->
 
@@ -35,7 +33,7 @@
       <div class="container">
         <div class="row">
          <div class="section-title">
-          <h2>{% trans "So'ngi yangiliklar" %}</h2>
+          <h2>So'ngi yangiliklar</h2>
         </div>
         {% for data in page_obj %}
           <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up">
@@ -48,9 +46,9 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">{{ data.title }}</a></h5>
-                <p> {% trans  "Vaqt" %} | {{ data.date }} </p>
+                <p> Vaqt | {{ data.date }} </p>
                 <p class="card-text">{{ data.summary }}<a href='{% url 'detail' data.pk %}'>...</a></p>
-                <div class="read-more"><a href="{% url 'detail' pk=data.id %}"><i class="bi bi-arrow-right"></i> {% trans 'Batafsil' %}</a></div>
+                <div class="read-more"><a href="{% url 'detail' pk=data.id %}"><i class="bi bi-arrow-right"></i> Batafsil</a></div>
               </div>
             </div>
           </div>
@@ -60,15 +58,15 @@
         <div class="pagination">
          <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; {% trans 'oldingi' %}</a>
+                <a href="?page=1">&laquo; oldingi</a>
                 <a href="?page={{ page_obj.previous_page_number }}"></a>
             {% endif %}
 
             <span class="current">
-                {% trans 'saxifa' %} {{ page_obj.number }} {% trans "dan" %} {{ page_obj.paginator.num_pages }}.
+                saxifa {{ page_obj.number }} dan {{ page_obj.paginator.num_pages }}.
             </span>
               {% if page_obj.has_next %}
-                  <a href="?page={{ page_obj.next_page_number }}">{% trans 'keyingi' %}</a>
+                  <a href="?page={{ page_obj.next_page_number }}">keyingi</a>
                   <a href="?page={{ page_obj.paginator.num_pages }}"> &raquo;</a>
               {% endif %}
           </span>
@@ -114,8 +112,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>{% trans 'Biz haqimizda' %}</h2>
-          <p>{% trans "Surxondaryo davlat o'rmon xo'jaligining huquqlari va javobgarligi." %}</p>
+          <h2>Biz haqimizda</h2>
+          <p>Surxondaryo davlat o'rmon xo'jaligining huquqlari va javobgarligi.</p>
         </div>
 
       {% for future in future_model %}
